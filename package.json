@@ -1,0 +1,26 @@
+{
+  "name": "jr-cli",
+  "version": "0.1.1",
+  "description": "简单脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm link"
+  },
+  "bin": {
+    "jr": "./build/jr.js",
+    "jr-init": "./build/jr-init.js"
+  },
+  "keys": [
+    "regular",
+    "cli"
+  ],
+  "author": "xiongxu",
+  "email": "xiongxu88@126.com",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
+    "git-clone": "^0.1.0"
+  },
+  "devDependencies": {}
+}
