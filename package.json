@@ -1,6 +1,6 @@
 {
   "name": "jr-cli",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "简单脚手架",
   "main": "index.js",
   "scripts": {

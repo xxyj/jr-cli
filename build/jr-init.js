@@ -7,7 +7,7 @@ var fs = require('fs');
 var path = require('path');
 var chalk = require('chalk');
 var inquirer = require('inquirer');
-var exec = require('child_process').exec
+var exec = require('child_process').exec;
 
 /**
  * Help.
@@ -119,11 +119,16 @@ function getTemplate(ans) {
         console.log(chalk.red(err));
         return;
       }
+      var obj = {
+        蓝色: 'blue',
+        橙色: 'default',
+        红色: 'red',
+      };
       var data = JSON.parse(data);
       data.description = ans.projectName;
       data.author = ans.author;
       data.version = ans.version;
-      data.style = ans.style;
+      data.style = obj[ans.style] || 'blue';
       data = JSON.stringify(data, null, '\t');
       fs.writeFile(package, data, err => {
         if (err) {
