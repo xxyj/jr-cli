@@ -65,6 +65,23 @@ function answers(flag) {
       },
       {
         type: 'rawlist',
+        name: 'skill',
+        default: 'js权限版本',
+        choices: ['js权限版本', 'ts无菜单权限'],
+        message: '请选择模板:',
+        validate(input) {
+          var done = this.async();
+          setTimeout(function() {
+            if (['js权限版本', 'ts无菜单权限'].indexOf(input) === -1) {
+              done('请选择一种模板');
+              return;
+            }
+            done(null, true);
+          }, 100);
+        },
+      },
+      {
+        type: 'rawlist',
         name: 'style',
         default: '蓝色',
         choices: ['蓝色', '橙色', '红色'],
@@ -100,7 +117,9 @@ function getTemplate(ans) {
   setTimeout(() => {
     console.log(chalk.blue('模板下载中,请稍后'));
   }, 100);
-  clone('https://github.com/xxyj/regular-template', folder, {}, function(err) {
+  const url =
+    ans.skill === 'js权限版本' ? 'https://github.com/JRTemplates/regular-template3.git' : 'https://github.com/xxyj/regular-template';
+  clone(url, folder, {}, function(err) {
     if (err) {
       console.log(chalk.red('下载模板失败 : ' + err.message.trim()));
       return;
