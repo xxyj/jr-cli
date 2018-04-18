@@ -145,6 +145,7 @@ function getTemplate(ans) {
       };
       var data = JSON.parse(data);
       data.description = ans.projectName;
+      data.title = ans.projectName;
       data.author = ans.author;
       data.version = ans.version;
       data.style = obj[ans.style] || 'blue';
